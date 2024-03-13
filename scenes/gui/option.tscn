@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://cv0fei03qr08i"]
+
+[ext_resource type="Script" path="res://scenes/gui/option.gd" id="1_ieai7"]
+[ext_resource type="BitMap" uid="uid://c8r3tu1xg6l4f" path="res://images/gui/option_mask.png" id="2_cx1dp"]
+[ext_resource type="Texture2D" uid="uid://ciixfktwjvisn" path="res://images/gui/optionback2.png" id="3_t8i0q"]
+[ext_resource type="Script" path="res://scenes/global_animated_texture_rect.gd" id="4_6sh6i"]
+[ext_resource type="Texture2D" uid="uid://cpnbxyvvea5em" path="res://images/gui/optionback1.png" id="5_4noxk"]
+[ext_resource type="Texture2D" uid="uid://bv13n3r2dd8fh" path="res://images/gui/optionback3.png" id="6_s5dp8"]
+[ext_resource type="Texture2D" uid="uid://drkjv2xdibrtj" path="res://images/gui/option2.png" id="7_c8j00"]
+[ext_resource type="Texture2D" uid="uid://qjpxl5mgqnhv" path="res://images/gui/option1.png" id="8_rg47t"]
+[ext_resource type="Texture2D" uid="uid://i1a6ws5e3xje" path="res://images/gui/option3.png" id="9_kvgpg"]
+[ext_resource type="Texture2D" uid="uid://d1qfomefcd5tm" path="res://images/gui/option4.png" id="10_45pof"]
+[ext_resource type="FontFile" uid="uid://4nsskn8kdugh" path="res://fonts/RecursiveMonoCslSt-Regular.ttf" id="11_rk218"]
+[ext_resource type="Script" path="res://scenes/gui/varyfont.gd" id="12_0kt8o"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_jlxdj"]
+script = ExtResource("12_0kt8o")
+
+[node name="Option" type="Control"]
+custom_minimum_size = Vector2(840, 140)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 840.0
+offset_bottom = 140.0
+pivot_offset = Vector2(420, 70)
+script = ExtResource("1_ieai7")
+hover_mask = ExtResource("2_cx1dp")
+
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(0.188235, 0.188235, 0.188235, 1)
+layout_mode = 2
+offset_right = 840.0
+offset_bottom = 140.0
+texture = ExtResource("3_t8i0q")
+script = ExtResource("4_6sh6i")
+frames = Array[Texture2D]([ExtResource("5_4noxk"), ExtResource("3_t8i0q"), ExtResource("6_s5dp8")])
+
+[node name="Border" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 840.0
+offset_bottom = 140.0
+texture = ExtResource("7_c8j00")
+script = ExtResource("4_6sh6i")
+frames = Array[Texture2D]([ExtResource("8_rg47t"), ExtResource("7_c8j00"), ExtResource("9_kvgpg"), ExtResource("10_45pof")])
+
+[node name="MarginContainer" type="MarginContainer" parent="Border"]
+clip_contents = true
+layout_mode = 0
+offset_left = 58.0
+offset_top = 36.0
+offset_right = 782.0
+offset_bottom = 104.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="Border/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="Border/MarginContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 6
+theme_override_fonts/normal_font = ExtResource("11_rk218")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[center][vary][/vary][/center]"
+fit_content = true
+scroll_active = false
+custom_effects = [SubResource("RichTextEffect_jlxdj")]
+visible_characters_behavior = 1

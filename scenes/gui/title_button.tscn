@@ -1,0 +1,44 @@
+[gd_scene load_steps=11 format=3 uid="uid://dexl8uo1giek0"]
+
+[ext_resource type="Texture2D" uid="uid://wppm00s2teq1" path="res://images/title/buttonback1.png" id="1_73cit"]
+[ext_resource type="Script" path="res://scenes/gui/title_button.gd" id="1_hqrc5"]
+[ext_resource type="Texture2D" uid="uid://1dkxmulypxv3" path="res://images/title/border1.png" id="1_kqdig"]
+[ext_resource type="BitMap" uid="uid://onh1utfeq5uw" path="res://images/title/buttonmask.png" id="2_ivbj6"]
+[ext_resource type="Script" path="res://scenes/global_animated_texture_rect.gd" id="2_nweh6"]
+[ext_resource type="Texture2D" uid="uid://beux78tt2vowq" path="res://images/title/buttonback2.png" id="3_m4nn5"]
+[ext_resource type="Texture2D" uid="uid://d1w3j86hla71r" path="res://images/title/border2.png" id="3_veytk"]
+[ext_resource type="Texture2D" uid="uid://dhrmg6jpai8kk" path="res://images/title/buttonback3.png" id="4_qerdk"]
+[ext_resource type="Texture2D" uid="uid://dmglwykgxy11u" path="res://images/title/border3.png" id="4_ya2xx"]
+[ext_resource type="Texture2D" uid="uid://b8nf0dsl2e33b" path="res://images/title/border4.png" id="5_df3ej"]
+
+[node name="TitleButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 440.0
+offset_bottom = 140.0
+pivot_offset = Vector2(220, 70)
+script = ExtResource("1_hqrc5")
+hover_mask = ExtResource("2_ivbj6")
+
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(0.188235, 0.188235, 0.188235, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_73cit")
+script = ExtResource("2_nweh6")
+frames = Array[Texture2D]([ExtResource("1_73cit"), ExtResource("3_m4nn5"), ExtResource("4_qerdk")])
+
+[node name="Border" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 440.0
+offset_bottom = 140.0
+texture = ExtResource("1_kqdig")
+script = ExtResource("2_nweh6")
+frames = Array[Texture2D]([ExtResource("1_kqdig"), ExtResource("3_veytk"), ExtResource("4_ya2xx"), ExtResource("5_df3ej")])
+
+[node name="Text" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 440.0
+offset_bottom = 140.0
+script = ExtResource("2_nweh6")

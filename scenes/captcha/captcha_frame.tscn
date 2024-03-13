@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b60eotfei7djc"]
+
+[ext_resource type="Script" path="res://scenes/captcha/captcha_frame.gd" id="1_wc1yi"]
+
+[node name="CaptchaFrame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wc1yi")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://x224mps3bcky"]
+
+[ext_resource type="Script" path="res://managers/audio_manager.gd" id="1_v1wmm"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_2p222"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_v1wmm")
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPolyphonic_2p222")
+autoplay = true
+max_polyphony = 32
+bus = &"SFX"
+
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Voice"

@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqwik8mmtcefi"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_u6unm"]
+[ext_resource type="PackedScene" uid="uid://ckkdv4ltbodo2" path="res://scenes/gui/notification_window.tscn" id="2_rrx0a"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_u6unm")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="NotificationWindow" parent="UI" instance=ExtResource("2_rrx0a")]
+unique_name_in_owner = true
+NOTIFICATION_INTERVAL = 0.25
+ACTIVE_NOTIFICATIONS = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BGColor" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
+[node name="SceneContainer" type="SubViewportContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+stretch = true
+
+[node name="ActiveScene" type="SubViewport" parent="SceneContainer"]
+unique_name_in_owner = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4

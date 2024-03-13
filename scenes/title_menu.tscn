@@ -1,0 +1,147 @@
+[gd_scene load_steps=30 format=3 uid="uid://5c6pec0n7410"]
+
+[ext_resource type="Script" path="res://scenes/title_menu.gd" id="1_xiawj"]
+[ext_resource type="Texture2D" uid="uid://cmx6qbed1nv7" path="res://images/title/nope1.png" id="2_5birt"]
+[ext_resource type="Texture2D" uid="uid://jq2gyk8i3y4t" path="res://images/bg1.png" id="2_327l1"]
+[ext_resource type="Script" path="res://scenes/global_animated_texture_rect.gd" id="3_a7572"]
+[ext_resource type="Texture2D" uid="uid://c2giodjd6k8m5" path="res://images/title/nope2.png" id="4_ad03g"]
+[ext_resource type="Texture2D" uid="uid://bqicycklcjyo" path="res://images/bg2.png" id="4_autsq"]
+[ext_resource type="Texture2D" uid="uid://t0g32jpyuw6g" path="res://images/title/nope3.png" id="5_kvkeb"]
+[ext_resource type="Texture2D" uid="uid://cxb66mbs7yjcf" path="res://images/bg3.png" id="5_o4mk7"]
+[ext_resource type="Texture2D" uid="uid://bwg2eoxi80ac4" path="res://images/bg4.png" id="6_g6rwk"]
+[ext_resource type="Texture2D" uid="uid://b33fis8u8wtk1" path="res://images/title/nope4.png" id="6_ng62w"]
+[ext_resource type="Texture2D" uid="uid://b1t1t1txm1vc2" path="res://images/title/nope0.png" id="7_0pfmi"]
+[ext_resource type="Texture2D" uid="uid://dn1k2k0i1qsv7" path="res://images/bg5.png" id="7_lijmo"]
+[ext_resource type="Texture2D" uid="uid://dkpa31llmhnnu" path="res://images/title/notachance1.png" id="8_rcml5"]
+[ext_resource type="Texture2D" uid="uid://bf4rs76s5edid" path="res://images/title/notachance2.png" id="9_trlda"]
+[ext_resource type="Texture2D" uid="uid://cuk1pnwj8bes4" path="res://images/title/notachance3.png" id="10_hiwqi"]
+[ext_resource type="Texture2D" uid="uid://b1twu80t7s1ee" path="res://images/title/notachance0.png" id="11_5ccp3"]
+[ext_resource type="PackedScene" uid="uid://dexl8uo1giek0" path="res://scenes/gui/title_button.tscn" id="12_u1xhi"]
+[ext_resource type="Texture2D" uid="uid://njsj472xpq5w" path="res://images/title/newgame1.png" id="13_yrv0i"]
+[ext_resource type="Texture2D" uid="uid://bqlry4fvevr3t" path="res://images/title/newgame2.png" id="14_o78lh"]
+[ext_resource type="Texture2D" uid="uid://110eta7bajrk" path="res://images/title/newgame3.png" id="15_slanv"]
+[ext_resource type="Texture2D" uid="uid://bxf4j3cur6kjd" path="res://images/title/loadgame1.png" id="16_fkli1"]
+[ext_resource type="Texture2D" uid="uid://douosua7nebk6" path="res://images/title/loadgame2.png" id="17_pg61b"]
+[ext_resource type="Texture2D" uid="uid://p3tcy07doi6q" path="res://images/title/loadgame3.png" id="18_vrr2k"]
+[ext_resource type="Texture2D" uid="uid://cfddvdby73fkw" path="res://images/title/options1.png" id="19_o0rcj"]
+[ext_resource type="Texture2D" uid="uid://bw6ccw56d3odf" path="res://images/title/options2.png" id="20_gasws"]
+[ext_resource type="Texture2D" uid="uid://b0f1t65odesy1" path="res://images/title/options3.png" id="21_awv1b"]
+[ext_resource type="Texture2D" uid="uid://oipcyfwtof0m" path="res://images/title/exit1.png" id="22_ylus7"]
+[ext_resource type="Texture2D" uid="uid://cc1xdomn4enw0" path="res://images/title/exit2.png" id="23_1c31n"]
+[ext_resource type="Texture2D" uid="uid://0kasmdskbtt4" path="res://images/title/exit3.png" id="24_c185l"]
+
+[node name="TitleMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_xiawj")
+
+[node name="BGColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(0.231373, 0.231373, 0.231373, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_327l1")
+script = ExtResource("3_a7572")
+frames = Array[Texture2D]([ExtResource("2_327l1"), ExtResource("4_autsq"), ExtResource("5_o4mk7"), ExtResource("6_g6rwk"), ExtResource("7_lijmo")])
+
+[node name="LogoContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -402.0
+offset_right = 402.0
+offset_bottom = 394.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 20
+
+[node name="NopeContainer" type="MarginContainer" parent="LogoContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 32
+
+[node name="Nope" type="TextureRect" parent="LogoContainer/NopeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_5birt")
+script = ExtResource("3_a7572")
+frames = Array[Texture2D]([ExtResource("2_5birt"), ExtResource("4_ad03g"), ExtResource("5_kvkeb"), ExtResource("6_ng62w"), ExtResource("7_0pfmi")])
+
+[node name="NotAChanceContainer" type="MarginContainer" parent="LogoContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 92
+theme_override_constants/margin_bottom = 32
+
+[node name="NotAChance" type="TextureRect" parent="LogoContainer/NotAChanceContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_rcml5")
+script = ExtResource("3_a7572")
+frames = Array[Texture2D]([ExtResource("8_rcml5"), ExtResource("9_trlda"), ExtResource("10_hiwqi"), ExtResource("11_5ccp3")])
+
+[node name="Buttons" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -442.0
+offset_top = -310.0
+offset_right = 442.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 2
+
+[node name="NewGame" parent="Buttons" instance=ExtResource("12_u1xhi")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(440, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text_frames = Array[Texture2D]([ExtResource("13_yrv0i"), ExtResource("14_o78lh"), ExtResource("15_slanv")])
+
+[node name="LoadGame" parent="Buttons" instance=ExtResource("12_u1xhi")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(440, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text_frames = Array[Texture2D]([ExtResource("16_fkli1"), ExtResource("17_pg61b"), ExtResource("18_vrr2k")])
+disabled = true
+
+[node name="Options" parent="Buttons" instance=ExtResource("12_u1xhi")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(440, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text_frames = Array[Texture2D]([ExtResource("19_o0rcj"), ExtResource("20_gasws"), ExtResource("21_awv1b")])
+disabled = true
+
+[node name="Exit" parent="Buttons" instance=ExtResource("12_u1xhi")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(440, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text_frames = Array[Texture2D]([ExtResource("22_ylus7"), ExtResource("23_1c31n"), ExtResource("24_c185l")])

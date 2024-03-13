@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=3 uid="uid://bpm2faucon3kq"]
+
+[ext_resource type="Script" path="res://scenes/captcha/captcha_game.gd" id="1_7j27t"]
+[ext_resource type="PackedScene" uid="uid://cnk05dqcvtt0e" path="res://scenes/captcha/captcha.tscn" id="1_iayjq"]
+[ext_resource type="Shader" path="res://scenes/captcha/captcha_game.gdshader" id="1_qpjs3"]
+[ext_resource type="Texture2D" uid="uid://dn1k2k0i1qsv7" path="res://images/bg5.png" id="2_t2slt"]
+[ext_resource type="Script" path="res://scenes/global_animated_texture_rect.gd" id="3_duyti"]
+[ext_resource type="Texture2D" uid="uid://jq2gyk8i3y4t" path="res://images/bg1.png" id="4_4wd61"]
+[ext_resource type="Texture2D" uid="uid://bqicycklcjyo" path="res://images/bg2.png" id="5_4wwvu"]
+[ext_resource type="Texture2D" uid="uid://cxb66mbs7yjcf" path="res://images/bg3.png" id="6_tg2ac"]
+[ext_resource type="Texture2D" uid="uid://bwg2eoxi80ac4" path="res://images/bg4.png" id="7_7ej2n"]
+[ext_resource type="PackedScene" uid="uid://dl83pje8umoco" path="res://scenes/gui/text_input.tscn" id="9_pwq5u"]
+[ext_resource type="FontFile" uid="uid://datyuanff1go0" path="res://fonts/ComicMono.ttf" id="9_v3cmr"]
+[ext_resource type="Script" path="res://scenes/gui/varyfont.gd" id="10_7kcb0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s7c6d"]
+shader = ExtResource("1_qpjs3")
+shader_parameter/blur_amount = 2.0
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_0jy15"]
+script = ExtResource("10_7kcb0")
+
+[node name="CaptchaGame" type="Control"]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7j27t")
+
+[node name="BlurLayer" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_s7c6d")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t2slt")
+script = ExtResource("3_duyti")
+frames = Array[Texture2D]([ExtResource("4_4wd61"), ExtResource("5_4wwvu"), ExtResource("6_tg2ac"), ExtResource("7_7ej2n"), ExtResource("2_t2slt")])
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -509.0
+offset_top = 75.0
+offset_right = 528.0
+offset_bottom = 210.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("9_v3cmr")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center][vary]Please complete the
+following captcha[/vary][/center]"
+scroll_active = false
+custom_effects = [SubResource("RichTextEffect_0jy15")]
+
+[node name="Captcha" parent="." instance=ExtResource("1_iayjq")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -80.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextInput" parent="." instance=ExtResource("9_pwq5u")]
+layout_mode = 1
+offset_left = 325.0
+offset_top = 360.0
+offset_right = 955.0
+offset_bottom = 501.0
+
+[node name="CorruptionTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true

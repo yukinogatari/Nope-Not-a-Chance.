@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnk05dqcvtt0e"]
+
+[ext_resource type="Script" path="res://scenes/captcha/captcha.gd" id="1_8h5sn"]
+[ext_resource type="Shader" path="res://scenes/captcha/glitch.gdshader" id="1_atm3g"]
+[ext_resource type="PackedScene" uid="uid://b60eotfei7djc" path="res://scenes/captcha/captcha_frame.tscn" id="3_gxmxk"]
+[ext_resource type="PackedScene" uid="uid://bsmadq0yy0tdc" path="res://scenes/captcha/captcha_text.tscn" id="4_tcq2n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uc2ua"]
+shader = ExtResource("1_atm3g")
+shader_parameter/shake_power = 0.01
+shader_parameter/shake_rate = 0.02
+shader_parameter/shake_speed = 2.5
+shader_parameter/shake_block_size = 24.0
+shader_parameter/shake_color_rate = 0.005
+
+[node name="Captcha" type="SubViewportContainer"]
+material = SubResource("ShaderMaterial_uc2ua")
+stretch = true
+script = ExtResource("1_8h5sn")
+FONT_COLOR = Color(0.470588, 0.313726, 0.980392, 0.486275)
+
+[node name="CaptchaViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="CaptchaFrame" parent="CaptchaViewport" instance=ExtResource("3_gxmxk")]
+unique_name_in_owner = true
+
+[node name="CaptchaText" parent="CaptchaViewport" instance=ExtResource("4_tcq2n")]
+unique_name_in_owner = true

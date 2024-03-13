@@ -1,0 +1,109 @@
+[gd_scene load_steps=19 format=3 uid="uid://d25b00611pg2v"]
+
+[ext_resource type="Script" path="res://scenes/gui/textbox.gd" id="1_8wba4"]
+[ext_resource type="Script" path="res://scenes/global_animated_texture_rect.gd" id="2_dhmeh"]
+[ext_resource type="Texture2D" uid="uid://c4j7lkm8pppm0" path="res://images/gui/textback1.png" id="3_pqkg3"]
+[ext_resource type="Texture2D" uid="uid://dae6yyd4j5hb8" path="res://images/gui/textback2.png" id="4_w0ntt"]
+[ext_resource type="Texture2D" uid="uid://2udt8x7p0q17" path="res://images/gui/textback3.png" id="5_x0x4k"]
+[ext_resource type="Texture2D" uid="uid://b0spuwn1gm3kk" path="res://images/gui/textbox1.png" id="7_gegd2"]
+[ext_resource type="Texture2D" uid="uid://bpg77x6mmpyya" path="res://images/gui/textbox2.png" id="8_6yp46"]
+[ext_resource type="Texture2D" uid="uid://ckvunmmjxsdeg" path="res://images/gui/textbox4.png" id="9_qkotx"]
+[ext_resource type="Texture2D" uid="uid://cvhfd2sysrx0y" path="res://images/gui/textbox3.png" id="9_v5u63"]
+[ext_resource type="FontFile" uid="uid://4nsskn8kdugh" path="res://fonts/RecursiveMonoCslSt-Regular.ttf" id="10_3qrmu"]
+[ext_resource type="Script" path="res://scenes/gui/varyfont.gd" id="11_llnhn"]
+[ext_resource type="Texture2D" uid="uid://gdjsha8vtvad" path="res://images/gui/ctc0.png" id="12_xvoay"]
+[ext_resource type="Texture2D" uid="uid://cvr6eojjdt1ki" path="res://images/gui/ctc1.png" id="13_7tyxw"]
+[ext_resource type="Texture2D" uid="uid://dskc8dw0eux2x" path="res://images/gui/ctc2.png" id="14_ob3xb"]
+[ext_resource type="Texture2D" uid="uid://daq4q1ewei5rg" path="res://images/gui/ctc3.png" id="15_ju5bh"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_jlxdj"]
+script = ExtResource("11_llnhn")
+
+[sub_resource type="Animation" id="Animation_fmj3k"]
+resource_name = "ctc"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CTC:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(957, 214), Vector2(957, 204), Vector2(957, 214)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbwsl"]
+_data = {
+"ctc": SubResource("Animation_fmj3k")
+}
+
+[node name="Textbox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1060.0
+offset_bottom = 300.0
+pivot_offset = Vector2(530, 150)
+mouse_filter = 1
+script = ExtResource("1_8wba4")
+
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(0.188235, 0.188235, 0.188235, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_w0ntt")
+script = ExtResource("2_dhmeh")
+frames = Array[Texture2D]([ExtResource("3_pqkg3"), ExtResource("4_w0ntt"), ExtResource("5_x0x4k")])
+
+[node name="Border" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1060.0
+offset_bottom = 300.0
+texture = ExtResource("8_6yp46")
+script = ExtResource("2_dhmeh")
+frames = Array[Texture2D]([ExtResource("7_gegd2"), ExtResource("8_6yp46"), ExtResource("9_v5u63"), ExtResource("9_qkotx")])
+
+[node name="MarginContainer" type="MarginContainer" parent="Border"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 43.0
+offset_right = 1005.0
+offset_bottom = 257.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 20
+
+[node name="Text" type="RichTextLabel" parent="Border/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/line_separation = 6
+theme_override_fonts/normal_font = ExtResource("10_3qrmu")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+scroll_active = false
+custom_effects = [SubResource("RichTextEffect_jlxdj")]
+visible_characters = 185
+visible_characters_behavior = 1
+
+[node name="CTC" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 957.0
+offset_top = 214.0
+offset_right = 1021.0
+offset_bottom = 278.001
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_xvoay")
+script = ExtResource("2_dhmeh")
+frames = Array[Texture2D]([ExtResource("13_7tyxw"), ExtResource("14_ob3xb"), ExtResource("15_ju5bh")])
+
+[node name="CTCAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tbwsl")
+}
+autoplay = "ctc"

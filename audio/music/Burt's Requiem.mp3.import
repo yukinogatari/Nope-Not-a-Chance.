@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlpooi28chem1"
+path="res://.godot/imported/Burt's Requiem.mp3-f9e3bc7b64f371aca8c7b9e191df7aa2.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Burt's Requiem.mp3"
+dest_files=["res://.godot/imported/Burt's Requiem.mp3-f9e3bc7b64f371aca8c7b9e191df7aa2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

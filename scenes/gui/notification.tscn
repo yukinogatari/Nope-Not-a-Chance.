@@ -1,0 +1,58 @@
+[gd_scene load_steps=13 format=3 uid="uid://c3iubatx5fsl"]
+
+[ext_resource type="Script" path="res://scenes/gui/notification.gd" id="1_4q7gp"]
+[ext_resource type="Texture2D" uid="uid://c4fyd1x0trr7i" path="res://images/gui/notifback2.png" id="2_ocnnl"]
+[ext_resource type="Script" path="res://scenes/global_animated_texture_rect.gd" id="3_qu6v3"]
+[ext_resource type="Texture2D" uid="uid://7ce72wkknmpq" path="res://images/gui/notifback1.png" id="4_rtrt0"]
+[ext_resource type="Texture2D" uid="uid://cqthxscqi0dmj" path="res://images/gui/notifback3.png" id="5_t6e3o"]
+[ext_resource type="Texture2D" uid="uid://cjroqlv0plew1" path="res://images/gui/notif2.png" id="6_wxyvd"]
+[ext_resource type="Texture2D" uid="uid://cyjauqq2y1y73" path="res://images/gui/notif1.png" id="7_k6mfn"]
+[ext_resource type="Texture2D" uid="uid://dem2l6qf0ypg1" path="res://images/gui/notif3.png" id="8_e76on"]
+[ext_resource type="Texture2D" uid="uid://b8tc0aykompcj" path="res://images/gui/notif4.png" id="9_wspq1"]
+[ext_resource type="FontFile" uid="uid://4nsskn8kdugh" path="res://fonts/RecursiveMonoCslSt-Regular.ttf" id="10_oktpy"]
+[ext_resource type="Script" path="res://scenes/gui/varyfont.gd" id="11_t7w6s"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ul8gh"]
+script = ExtResource("11_t7w6s")
+
+[node name="Notification" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4q7gp")
+
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(0.188235, 0.188235, 0.188235, 1)
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 120.0
+texture = ExtResource("2_ocnnl")
+script = ExtResource("3_qu6v3")
+frames = Array[Texture2D]([ExtResource("4_rtrt0"), ExtResource("2_ocnnl"), ExtResource("5_t6e3o")])
+
+[node name="Border" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 120.0
+texture = ExtResource("6_wxyvd")
+script = ExtResource("3_qu6v3")
+frames = Array[Texture2D]([ExtResource("7_k6mfn"), ExtResource("6_wxyvd"), ExtResource("8_e76on"), ExtResource("9_wspq1")])
+
+[node name="CenterContainer" type="CenterContainer" parent="Border"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 2.0
+offset_right = 191.0
+offset_bottom = 94.0
+
+[node name="NotifLabel" type="RichTextLabel" parent="Border/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("10_oktpy")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[center]Stop, you can't do that.[/center]"
+fit_content = true
+scroll_active = false
+custom_effects = [SubResource("RichTextEffect_ul8gh")]
+visible_characters_behavior = 1

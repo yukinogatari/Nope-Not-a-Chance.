@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdy82nj4mhsmy"]
+
+[ext_resource type="Script" path="res://scenes/gui/options_menu.gd" id="1_30c8s"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_30c8s")
+Y_SPACING = -32
+
+[node name="Anchor" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 640.0
+offset_top = 210.0
+offset_right = 640.0
+offset_bottom = 210.0
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

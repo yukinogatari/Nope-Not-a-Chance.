@@ -1,0 +1,124 @@
+[gd_scene load_steps=17 format=3 uid="uid://byxkumwqsakrs"]
+
+[ext_resource type="Script" path="res://scenes/not_a_game.gd" id="1_72sf3"]
+[ext_resource type="PackedScene" uid="uid://dq514f05emo0u" path="res://scenes/adv.tscn" id="1_cgodd"]
+[ext_resource type="Texture2D" uid="uid://dq1enocm2ax83" path="res://images/scene1-0.png" id="2_7sl8g"]
+[ext_resource type="Script" path="res://scenes/global_animated_texture_rect.gd" id="3_t0c40"]
+[ext_resource type="Texture2D" uid="uid://ddu3t3plgbvb6" path="res://images/scene1-1.png" id="4_ka2rb"]
+[ext_resource type="Texture2D" uid="uid://c7ilewv2snsux" path="res://images/scene1-2.png" id="5_xhjjh"]
+[ext_resource type="Texture2D" uid="uid://df2u6ne5cjmcp" path="res://images/scene1-3.png" id="6_sklbt"]
+[ext_resource type="Texture2D" uid="uid://bm6qpbs87v8pc" path="res://images/scene2-0.png" id="7_o1nlg"]
+[ext_resource type="Texture2D" uid="uid://c1pw7aebj8p2u" path="res://images/scene2-1.png" id="8_jlv0g"]
+[ext_resource type="Texture2D" uid="uid://dex3pfpwvhl2w" path="res://images/scene2-2.png" id="9_vyy65"]
+[ext_resource type="Texture2D" uid="uid://dosf0w2rqlcuf" path="res://images/scene2-3.png" id="10_302j8"]
+[ext_resource type="PackedScene" uid="uid://dl83pje8umoco" path="res://scenes/gui/text_input.tscn" id="12_g3gca"]
+[ext_resource type="PackedScene" uid="uid://bpm2faucon3kq" path="res://scenes/captcha/captcha_game.tscn" id="13_jbm1h"]
+[ext_resource type="FontFile" uid="uid://bihpu7isu2ilf" path="res://fonts/LibreBaskerville-Regular.ttf" id="14_iuqnj"]
+[ext_resource type="FontFile" uid="uid://dhtv7q0sxf2iw" path="res://fonts/LibreBaskerville-Bold.ttf" id="15_xq4kv"]
+[ext_resource type="FontFile" uid="uid://b0pgbu26xtd8i" path="res://fonts/LibreBaskerville-Italic.ttf" id="16_vwtg2"]
+
+[node name="NotAGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_72sf3")
+
+[node name="BGColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.168627, 0.141176, 0.2, 1)
+
+[node name="Scene1" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(742, 334)
+texture = ExtResource("2_7sl8g")
+script = ExtResource("3_t0c40")
+frames = Array[Texture2D]([ExtResource("4_ka2rb"), ExtResource("5_xhjjh"), ExtResource("6_sklbt")])
+
+[node name="ClickRegion" type="Control" parent="Scene1"]
+anchors_preset = 0
+offset_left = 707.0
+offset_top = 263.0
+offset_right = 778.0
+offset_bottom = 394.0
+mouse_default_cursor_shape = 2
+
+[node name="Scene2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_o1nlg")
+script = ExtResource("3_t0c40")
+frames = Array[Texture2D]([ExtResource("8_jlv0g"), ExtResource("9_vyy65"), ExtResource("10_302j8")])
+
+[node name="ClickRegion" type="Control" parent="Scene2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 835.0
+offset_top = 231.0
+offset_right = 937.0
+offset_bottom = 400.0
+mouse_default_cursor_shape = 2
+
+[node name="ADV" parent="." instance=ExtResource("1_cgodd")]
+layout_mode = 1
+
+[node name="TextInput" parent="." instance=ExtResource("12_g3gca")]
+visible = false
+layout_mode = 0
+offset_left = 333.0
+offset_top = 246.0
+offset_right = 333.0
+offset_bottom = 246.0
+
+[node name="CaptchaGame" parent="." instance=ExtResource("13_jbm1h")]
+visible = false
+use_parent_material = false
+layout_mode = 1
+
+[node name="PlayerProfile" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1011.0
+offset_top = 16.0
+offset_right = 1263.0
+offset_bottom = 234.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("14_iuqnj")
+theme_override_fonts/bold_font = ExtResource("15_xq4kv")
+theme_override_fonts/italics_font = ExtResource("16_vwtg2")
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[center][b]Profile[/b][/center]
+[table=2]
+[cell]Name           [/cell][cell]%s[/cell]
+[cell]Age               [/cell][cell]%d years[/cell]
+[cell]Gender        [/cell][cell]%s[/cell]
+[cell]Birthplace   [/cell][cell]%s[/cell]
+[cell]Parents        [/cell][cell]%s[/cell]
+[cell]Siblings       [/cell][cell]%s[/cell]"
+fit_content = true
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="HarassmentTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="gui_input" from="Scene1/ClickRegion" to="." method="_on_click_region_gui_input"]
+[connection signal="gui_input" from="Scene2/ClickRegion" to="." method="_on_click_region_chair_gui_input"]
